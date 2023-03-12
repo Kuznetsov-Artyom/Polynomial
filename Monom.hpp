@@ -13,12 +13,13 @@ struct Monom
 
 	Monom(double cf = 0.0, int deg = 0) : coef{ cf }, degree{ deg } {}
 
-	bool operator == (const Monom& other) { return degree == other.degree; }
-	bool operator != (const Monom& other) { return degree != other.degree; }
-	bool operator > (const Monom& other) { return degree > other.degree; }
-	bool operator < (const Monom& other) { return degree < other.degree; }
-	bool operator >= (const Monom& other) { return degree >= other.degree; }
-	bool operator <= (const Monom& other) { return degree <= other.degree; }
+	bool operator == (const Monom& other) const { return degree == other.degree; }
+	bool operator != (const Monom& other) const { return degree != other.degree; }
+	bool operator > (const Monom& other) const { return degree > other.degree; }
+	bool operator < (const Monom& other) const { return degree < other.degree; }
+	bool operator >= (const Monom& other) const { return degree >= other.degree; }
+	bool operator <= (const Monom& other) const { return degree <= other.degree; }
+	Monom operator - () const { return Monom(-coef, degree); }
 };
 
 

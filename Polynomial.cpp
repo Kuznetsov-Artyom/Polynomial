@@ -32,7 +32,7 @@ void Polynomial::throwExceptionIfEmpty()
 		throw std::logic_error{ "polynomial is empty" };
 }
 
-void Polynomial::addMonom(Monom monom)
+void Polynomial::addMonom(const Monom& monom)
 {
 	if (monom.coef == 0.0) return;
 
