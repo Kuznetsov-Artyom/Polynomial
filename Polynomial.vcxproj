@@ -128,9 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Polynomial.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="List.hpp" />
+    <ClInclude Include="Monom.hpp" />
+    <ClInclude Include="Polynomial.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

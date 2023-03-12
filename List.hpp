@@ -111,9 +111,6 @@ public:
 	}
 	size_t size() const noexcept { return mSize; }
 
-	// 
-	void setSize(size_t newSize) noexcept { mSize = newSize; }
-
 
 	void push_back(T value);
 	void pop_back();
@@ -126,6 +123,7 @@ public:
 	void insert_after_if(T value, std::function<bool(T, T)> func);
 
 	void remove_nodes_if(std::function<bool(T)> func);
+	void erase(size_t pos);
 
 	bool empty() const noexcept { return mHead->next == nullptr; }
 	bool find(T value) const noexcept;
@@ -396,19 +394,48 @@ inline void List<T>::remove_nodes_if(std::function<bool(T)> func)
 {
 	throwExceptionIfEmpty();
 
-	Node<T>* lastNode = mHead;
+	size_t index = 0;
 
 	for (auto it = begin(); it != end();)
 	{
 		if (func(*it))
 		{
+			++it;
+			erase(index);
+		}
+		else
+		{
+			++it;
+			++index;
+		}
+	}
+}
+
+template<typename T>
+inline void List<T>::erase(size_t pos)
+{
+	throwExceptionIfEmpty();
+
+	if (pos >= mSize)
+		throw std::out_of_range{ "out_of_range" };
+
+	Node<T>* lastNode = mHead;
+	size_t index = 0;
+
+	for (auto it = begin(); it != end(); ++it)
+	{
+		if (index == pos)
+		{
 			lastNode->next = it->next;
 
-			Node<T>* delNode = it++;
+			Node<T>* delNode = it;
 			delete delNode;
 			--mSize;
+			return;
 		}
-		else lastNode = it++;
+
+		lastNode = it;
+		++index;
 	}
 }
 
