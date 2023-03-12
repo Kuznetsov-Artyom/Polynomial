@@ -285,6 +285,14 @@ inline void List<T>::pop_back()
 {
 	throwExceptionIfEmpty();
 
+	if (mHead->next == mTail)
+	{
+		delete mTail;
+		mHead->next = mTail = nullptr;
+		mSize = 0;
+		return;
+	}
+
 	Node<T>* newBackNode = begin() + (mSize - 2);
 	mTail = newBackNode;
 
@@ -316,6 +324,14 @@ template<typename T>
 inline void List<T>::pop_front()
 {
 	throwExceptionIfEmpty();
+
+	if (mHead->next == mTail)
+	{
+		delete mTail;
+		mHead->next = mTail = nullptr;
+		mSize = 0;
+		return;
+	}
 
 	Node<T>* newFrontNode = begin() + 1;
 
@@ -376,6 +392,8 @@ inline void List<T>::insert_after_if(T value, std::function<bool(T, T)> func)
 	{
 		if (func(value, *it))
 		{
+			if (it->next == mHead) mTail = newNode;
+
 			newNode->next = it->next;
 			it->next = newNode;
 			return;
@@ -418,6 +436,12 @@ inline void List<T>::erase(size_t pos)
 
 	if (pos >= mSize)
 		throw std::out_of_range{ "out_of_range" };
+
+	if (pos == mSize - 1)
+	{
+		pop_back();
+		return;
+	}
 
 	Node<T>* lastNode = mHead;
 	size_t index = 0;
