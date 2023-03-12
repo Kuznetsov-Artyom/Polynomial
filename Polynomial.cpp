@@ -61,17 +61,14 @@ std::string Polynomial::updPolStr()
 	auto itStart = mPolynom.cbegin();
 	auto itStop = mPolynom.cend();
 
-	if (itStart->value.coef > 0.0)
-		stream << *itStart;
-	else stream << "- " << *itStart;
+	stream << *itStart;
 
 	++itStart;
 
 	for (auto it = itStart; it != itStop; ++it)
 	{
-		if (it->value.coef > 0.0)
-			stream << " + " << *it;
-		else stream << " - " << *it;
+		if (it->value.coef > 0.0) stream << " + " << *it;
+		else stream << *it;
 	}
 
 	mPolStr = stream.str();
@@ -122,4 +119,26 @@ Polynomial Polynomial::operator-(const Polynomial& other) const
 	}
 
 	return newPolyom;
+}
+
+Polynomial& Polynomial::operator+=(const Polynomial& other)
+{
+	if (other.empty()) return *this;
+
+	auto itStart = other.mPolynom.cbegin();
+	auto itStop = other.mPolynom.cend();
+
+	for (auto it = itStart; it != itStop;) { addMonom(*(it++)); }
+
+	return *this;
+}
+
+Polynomial& Polynomial::operator-=(const Polynomial& other)
+{
+	if (other.empty()) return *this;
+
+	auto itStart = other.mPolynom.cbegin();
+	auto itStop = other.mPolynom.cend();
+
+	for (auto it = itStart; it != itStop;) { addMonom(-(*(it++))); }
 }

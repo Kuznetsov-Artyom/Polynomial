@@ -42,26 +42,8 @@ public:
 	Polynomial& operator = (const Polynomial& other);
 	Polynomial operator + (const Polynomial& other) const;
 	Polynomial operator - (const Polynomial& other) const;
-	Polynomial& operator += (const Polynomial& other)
-	{
-		if (other.empty()) return *this;
-
-		auto itStart = other.mPolynom.cbegin();
-		auto itStop = other.mPolynom.cend();
-
-		for (auto it = itStart; it != itStop;) { addMonom(*(it++)); }
-
-		return *this;
-	}
-	Polynomial& operator -= (const Polynomial& other)
-	{
-		if (other.empty()) return *this;
-
-		auto itStart = other.mPolynom.cbegin();
-		auto itStop = other.mPolynom.cend();
-
-		for (auto it = itStart; it != itStop;) { addMonom(-(*(it++))); }
-	}
+	Polynomial& operator += (const Polynomial& other);
+	Polynomial& operator -= (const Polynomial& other);
 
 	friend inline std::ostream& operator << (std::ostream& out, const Polynomial& polynom);
 };

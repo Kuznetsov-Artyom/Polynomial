@@ -28,8 +28,13 @@ inline std::ostream& operator << (std::ostream& out, const Monom& monom)
 	int degrX = monom.degree / 100;
 	int degrY = monom.degree / 10 % 10;
 	int degrZ = monom.degree % 10;
+	
+	if (monom.coef < 0.0) out << " - ";
+	out << abs(monom.coef);
 
-	out << abs(monom.coef) << "x^" << degrX << "y^" << degrY << "z^" << degrZ;
+	if (degrX != 0.0) out << "x^" << degrX;
+	if (degrY != 0.0) out << "y^" << degrY;
+	if (degrZ != 0.0) out <<"z^" << degrZ;
 
 	return out;
 }

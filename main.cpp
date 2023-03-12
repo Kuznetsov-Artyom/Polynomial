@@ -16,7 +16,7 @@ int main(int argc, char* argv[])
 	polynom.addMonom(Monom(-9, 123));
 
 	polynomTwo.addMonom(Monom(5, 323));
-	polynomTwo.addMonom(Monom(5, 225));
+	polynomTwo.addMonom(Monom(5, 0));
 	polynomTwo.addMonom(Monom(-123, 494));
 	polynomTwo.addMonom(Monom(6, 123));
 
