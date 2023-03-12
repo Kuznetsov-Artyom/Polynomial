@@ -14,11 +14,13 @@ int main(int argc, char* argv[])
 	polynom.addMonom(Monom(4, 323));
 	polynom.addMonom(Monom(-5, 225));
 	polynom.addMonom(Monom(-9, 123));
+	polynom.addMonom(Monom(25.5, 0));
 
 	polynomTwo.addMonom(Monom(5, 323));
-	polynomTwo.addMonom(Monom(5, 0));
+	polynomTwo.addMonom(Monom(-15.5, 0));
 	polynomTwo.addMonom(Monom(-123, 494));
 	polynomTwo.addMonom(Monom(6, 123));
+
 
 	polynom.updPolStr();
 	polynomTwo.updPolStr();
@@ -47,9 +49,14 @@ int main(int argc, char* argv[])
 
 	std::cout << polynom << '\n';
 
+	/*polynom = polynom + 5;
+	polynomTwo = 10 + polynomTwo;
 
-	
+	polynom.updPolStr();
+	polynomTwo.updPolStr();
 
+	std::cout << polynom << '\n' << polynomTwo << "\n\n";
+	std::cout << -polynom << '\n' << -polynomTwo << "\n\n";*/
 
 
 	/*List<int> list;

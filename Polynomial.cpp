@@ -93,32 +93,28 @@ Polynomial& Polynomial::operator=(const Polynomial& other)
 
 Polynomial Polynomial::operator+(const Polynomial& other) const
 {
-	Polynomial newPolyom;
+	if (other.empty()) return *this;
 
-	for (auto it = mPolynom.cbegin(); it != mPolynom.cend(); ++it)
-		newPolyom.addMonom(*it);
+	Polynomial newPolynom;
 
-	for (auto it = other.mPolynom.cbegin(); it != other.mPolynom.cend(); ++it)
-		newPolyom.addMonom(*it);
+	auto itStart = mPolynom.cbegin();
+	auto itStop = mPolynom.cend();
 
-	return newPolyom;
+	for (auto it = itStart; it != itStop;) newPolynom.addMonom(*(it++));
+
+	itStart = other.mPolynom.cbegin();
+	itStop = other.mPolynom.cend();
+
+	for (auto it = itStart; it != itStop;) newPolynom.addMonom(*(it++));
+
+	return newPolynom;
 }
 
 Polynomial Polynomial::operator-(const Polynomial& other) const
 {
-	Polynomial newPolyom;
+	if (other.empty()) return *this;
 
-	for (auto it = mPolynom.cbegin(); it != mPolynom.cend(); ++it)
-		newPolyom.addMonom(*it);
-
-	for (auto it = other.mPolynom.cbegin(); it != other.mPolynom.cend(); ++it)
-	{
-		Monom newMonom(*it);
-		newMonom.coef = -newMonom.coef;
-		newPolyom.addMonom(newMonom);
-	}
-
-	return newPolyom;
+	return Polynomial(*this + (-other));
 }
 
 Polynomial& Polynomial::operator+=(const Polynomial& other)
@@ -137,8 +133,39 @@ Polynomial& Polynomial::operator-=(const Polynomial& other)
 {
 	if (other.empty()) return *this;
 
-	auto itStart = other.mPolynom.cbegin();
-	auto itStop = other.mPolynom.cend();
+	*this += -other;
 
-	for (auto it = itStart; it != itStop;) { addMonom(-(*(it++))); }
+	return *this;
+}
+
+Polynomial& Polynomial::operator+=(const double& value)
+{
+	if (value == 0.0) return *this;
+	
+	addMonom(Monom(value));
+
+	return *this;
+}
+
+Polynomial& Polynomial::operator-=(const double& value)
+{
+	*this += -value;
+
+	return *this;
+}
+
+Polynomial Polynomial::operator+() const { return *this; }
+
+Polynomial Polynomial::operator-() const
+{
+	if (empty()) return *this;
+
+	Polynomial newPolynom;
+
+	auto itStart = mPolynom.cbegin();
+	auto itStop = mPolynom.cend();
+
+	for (auto it = itStart; it != itStop;) newPolynom.addMonom(-(*(it++)));
+	
+	return newPolynom;	
 }
