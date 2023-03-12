@@ -30,6 +30,8 @@ int main(int argc, char* argv[])
 	std::cout << "Sum: " << polynom + polynomTwo << '\n';
 	std::cout << "Dif: " << polynom - polynomTwo << '\n';
 
+	polynom.clear();
+
 	std::cout << polynom.size() << ' ' << polynomTwo.size() << '\n';
 
 	polynomTwo.delMonom(494);

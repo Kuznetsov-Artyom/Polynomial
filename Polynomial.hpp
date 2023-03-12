@@ -34,6 +34,7 @@ public:
 
 	size_t size() const noexcept(noexcept(mPolynom.size())) { return mPolynom.size(); }
 	bool empty() const noexcept(noexcept(mPolynom.empty())) { return mPolynom.empty(); }
+	void clear() { mPolynom.clear(); }
 
 
 
