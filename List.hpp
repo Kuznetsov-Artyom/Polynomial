@@ -55,7 +55,7 @@ public:
 	ConstIterator(Node<T>* node = nullptr) : curNode{ node } {}
 
 	const T& operator * () { return curNode->value; }
-	Node<T>* operator -> () { return curNode; }
+	const Node<T>* operator -> () { return curNode; }
 
 	ConstIterator<T>& operator ++ ();
 	ConstIterator<T> operator ++ (int);

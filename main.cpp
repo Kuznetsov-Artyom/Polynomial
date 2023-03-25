@@ -43,13 +43,13 @@ int main(int argc, char* argv[])
 
 	std::cout << "\n\n";
 
-	std::cout << polynom << '\n';
+	std::cout << polynomTwo << '\n';
 
-	polynom -= polynom;
+	polynomTwo -= polynomTwo;
 
-	polynom.updPolStr();
+	polynomTwo.updPolStr();
 
-	std::cout << polynom << '\n';
+	std::cout << polynomTwo << '\n';
 
 	/*polynom = polynom + 5;
 	polynomTwo = 10 + polynomTwo;

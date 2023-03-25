@@ -31,6 +31,13 @@ public:
 	std::string updPolStr();
 	std::string polynomStr() const { return mPolStr; }
 
+	double calculateAtPoint(int x, int y, int z)
+	{
+		// TODO: Переделать моном и реализовать вычисление в точке
+
+		return double();
+	}
+
 
 	size_t size() const noexcept(noexcept(mPolynom.size())) { return mPolynom.size(); }
 	bool empty() const noexcept(noexcept(mPolynom.empty())) { return mPolynom.empty(); }
