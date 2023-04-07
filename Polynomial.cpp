@@ -32,26 +32,6 @@ void Polynomial::throwExceptionIfEmpty()
 		throw std::logic_error{ "polynomial is empty" };
 }
 
-void Polynomial::addMonom(const Monom& monom)
-{
-	if (monom.coef == 0.0) return;
-
-	mPolynom.insert_before_if(monom, [](Monom one, Monom two) { return one > two; });
-
-	if (mPolynom.size() == 1) return;
-
-	unionSimilar();
-
-	mPolynom.remove_nodes_if([](Monom monom) { return monom.coef == 0.0; });
-}
-
-void Polynomial::delMonom(int degree)
-{
-	throwExceptionIfEmpty();
-
-	mPolynom.remove_nodes_if([&degree](Monom monom) { return monom.degree == degree; });
-}
-
 std::string Polynomial::updPolStr()
 {
 	if (empty()) return std::string();
@@ -74,6 +54,34 @@ std::string Polynomial::updPolStr()
 	mPolStr = stream.str();
 
 	return mPolStr;
+}
+
+void Polynomial::addMonom(const Monom& monom)
+{
+	if (monom.coef == 0.0) return;
+
+	mPolynom.insert_before_if(monom, [](Monom one, Monom two) { return one > two; });
+
+	if (mPolynom.size() == 1)
+	{
+		updPolStr();
+		return;
+	}
+
+	unionSimilar();
+
+	mPolynom.remove_nodes_if([](Monom monom) { return monom.coef == 0.0; });
+
+	updPolStr();
+}
+
+void Polynomial::delMonom(int degree)
+{
+	throwExceptionIfEmpty();
+
+	mPolynom.remove_nodes_if([&degree](Monom monom) { return monom.degree == degree; });
+
+	updPolStr();
 }
 
 

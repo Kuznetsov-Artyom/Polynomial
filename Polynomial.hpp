@@ -18,6 +18,7 @@ private:
 private:
 	void unionSimilar();
 	void throwExceptionIfEmpty();
+	std::string updPolStr();
 
 public:
 	Polynomial() : mPolynom{}, mPolStr{} {}
@@ -27,9 +28,7 @@ public:
 	void addMonom(const Monom& monom);
 	void delMonom(int degree);
 
-
-	std::string updPolStr();
-	std::string polynomStr() const { return mPolStr; }
+	std::string polynomStr() const noexcept { return mPolStr; }
 
 	double calculateAtPoint(int x, int y, int z)
 	{

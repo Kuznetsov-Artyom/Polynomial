@@ -21,11 +21,9 @@ int main(int argc, char* argv[])
 	polynomTwo.addMonom(Monom(-123, 494));
 	polynomTwo.addMonom(Monom(6, 123));
 
+	const Polynomial polynomThree(polynom);
 
-	polynom.updPolStr();
-	polynomTwo.updPolStr();
-
-	std::cout << polynom << '\n' << polynomTwo << "\n\n";
+	std::cout << polynom << '\n' << polynomTwo << '\n' << polynomThree << "\n\n";
 
 	std::cout << "Sum: " << polynom + polynomTwo << '\n';
 	std::cout << "Dif: " << polynom - polynomTwo << '\n';
@@ -36,8 +34,6 @@ int main(int argc, char* argv[])
 
 	polynomTwo.delMonom(494);
 
-	polynomTwo.updPolStr();
-
 	std::cout << polynom << '\n' << polynomTwo << "\n\n";
 	std::cout << polynom.size() << ' ' << polynomTwo.size() << '\n';
 
@@ -46,8 +42,6 @@ int main(int argc, char* argv[])
 	std::cout << polynomTwo << '\n';
 
 	polynomTwo -= polynomTwo;
-
-	polynomTwo.updPolStr();
 
 	std::cout << polynomTwo << '\n';
 
