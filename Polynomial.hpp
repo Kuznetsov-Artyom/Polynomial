@@ -6,7 +6,6 @@
 #include "List.hpp"
 #include <string>
 #include <sstream>
-#include <ostream>
 
 
 class Polynomial

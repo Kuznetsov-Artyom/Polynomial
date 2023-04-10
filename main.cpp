@@ -1,6 +1,6 @@
 #include <iostream>
-#include "Polynomial.hpp"
-
+//#include "Polynomial.hpp"
+#include "List.hpp"
 
 
 
@@ -8,7 +8,7 @@
 
 int main(int argc, char* argv[])
 {
-	Polynomial polynom;
+	/*Polynomial polynom;
 	Polynomial polynomTwo;
 
 	polynom.addMonom(Monom(4, 323));
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 
 	polynomTwo -= polynomTwo;
 
-	std::cout << polynomTwo << '\n';
+	std::cout << polynomTwo << '\n';*/
 
 	/*polynom = polynom + 5;
 	polynomTwo = 10 + polynomTwo;
@@ -55,7 +55,7 @@ int main(int argc, char* argv[])
 	std::cout << -polynom << '\n' << -polynomTwo << "\n\n";*/
 
 
-	/*List<int> list;
+	List<int> list;
 
 	for (int i = 4; i >= 0; --i)
 		list.push_back(i + 1);
@@ -107,7 +107,7 @@ int main(int argc, char* argv[])
 
 	std::cout << listFree << '\n';
 	std::cout << listFree.front() << ' ' << listFree.back() << "\n\n";
-*/
+
 
 
 

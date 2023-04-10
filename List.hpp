@@ -3,9 +3,6 @@
 
 
 #include <stdexcept>
-#include <ostream>
-#include <vector>
-#include <algorithm>
 #include <functional>
 
 
