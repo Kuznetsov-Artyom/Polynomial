@@ -1,5 +1,5 @@
 #include <iostream>
-//#include "Polynomial.hpp"
+#include "Polynomial.hpp"
 #include "List.hpp"
 
 
@@ -8,7 +8,7 @@
 
 int main(int argc, char* argv[])
 {
-	/*Polynomial polynom;
+	Polynomial polynom;
 	Polynomial polynomTwo;
 
 	polynom.addMonom(Monom(4, 323));
@@ -43,7 +43,7 @@ int main(int argc, char* argv[])
 
 	polynomTwo -= polynomTwo;
 
-	std::cout << polynomTwo << '\n';*/
+	std::cout << polynomTwo << '\n';
 
 	/*polynom = polynom + 5;
 	polynomTwo = 10 + polynomTwo;
