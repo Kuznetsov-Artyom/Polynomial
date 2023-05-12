@@ -1,5 +1,7 @@
 # Polynomial
-## Opportunities
+## Description
+This repository contains the source code of the "Polynomial" console application.
+## :wrench:Opportunities:wrench:
 * Addition with (operator +)
   * Polynomial
   * Constant
