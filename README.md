@@ -14,3 +14,5 @@ This repository contains the source code of the "Polynomial" console application
 * Reduce the polynomial by (operator -=)
   * Polynomial
   * Constant
+## Link for cloning the repository
+'https://github.com/Kuznetsov-Artyom/Polynomial.git'
