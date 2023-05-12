@@ -15,4 +15,4 @@ This repository contains the source code of the "Polynomial" console application
   * Polynomial
   * Constant
 ## Link for cloning the repository
-'git clone https://github.com/Kuznetsov-Artyom/Polynomial.git'
+`git clone https://github.com/Kuznetsov-Artyom/Polynomial.git`
